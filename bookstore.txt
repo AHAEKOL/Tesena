@@ -1,0 +1,103 @@
+REM   Script: Session 01
+REM   tskills populate tables
+
+create table books (  
+    book_id number,  
+    title varchar2(50),  
+    genre varchar2(30),  
+    available_count number  
+     
+);
+
+create table authors (  
+    author_id number,  
+    aut_name varchar2(30)
+);
+
+create table BooksAuthor (  
+    book_id number , 
+    author_id number
+);
+
+create table clients (  
+    client_id number,  
+    client_name varchar2(30) 
+      
+);
+
+create table reservations (  
+    reservation_id number,  
+    client_id number,
+	book_id number,
+    since date,  
+    till date,
+	returned number(1),
+	returned_date date
+);
+
+insert into books values (01, 'Smart ass', 'fiction', 25);
+insert into books values (02, 'JOJO Rabitt','sci-fi', 15);
+insert into books values (03, 'Critters', 'non-fiction', 5);
+insert into books values (04, 'Colonoskopy in practice', 'comic', 30);
+insert into books values (05, 'Gipsy urbanism', 'geographic', 4);
+insert into books values (06, 'Shopaholic savings', 'financial', 10);
+insert into books values (07, 'Theology of harassment', 'religional', 7);
+insert into books values (08, 'Couch yoga', 'sport', 18);
+insert into books values (09, 'Gipsy welthmanagement', 'financial', 23);
+insert into books values (10, 'Cooled hot chilli peppers', 'romantic', 4);
+insert into books values (11, 'Cooled hot chilli peppers', 'thriller', 8);
+insert into books values (12, 'Cooled hot chilli peppers', 'comic', 7);
+insert into BooksAuthor values (01, 5001 );
+insert into BooksAuthor values (02, 5002 );
+insert into BooksAuthor values (03, 5003 );
+insert into BooksAuthor values (04, 5004 );
+insert into BooksAuthor values (05, 5005 );
+insert into BooksAuthor values (06, 5002 );
+insert into BooksAuthor values (07, 5002 );
+insert into BooksAuthor values (08, 5004 );
+insert into BooksAuthor values (09, 5002 );
+insert into BooksAuthor values (10, 5003 );
+insert into authors values (5001, 'James Hoog');
+insert into authors values (5002, 'Neil Knite');
+insert into authors values (5003, 'Pit Alex');
+insert into authors values (5004, 'Mc Lyon');
+insert into authors values (5005, 'Paul Adam');
+insert into clients values (001, 'Duffman');
+insert into clients values (002, 'Bartman');
+insert into clients values (005, 'Crusty');
+insert into clients values (006, 'Moe');
+insert into clients values (007, 'Mr.Burns');
+insert into reservations values (011,001,01,(TO_DATE('2021-01-05','YYYY-MM-DD')), (TO_DATE('2021-02-05','YYYY-MM-DD')),0 , NULL);
+insert into reservations values (012,002,02,(TO_DATE('2022-01-20','YYYY-MM-DD')), (TO_DATE('2022-02-20','YYYY-MM-DD')),1 , (TO_DATE('2022-02-15','YYYY-MM-DD')));
+insert into reservations values (015,005,03,(TO_DATE('2022-02-05','YYYY-MM-DD')), (TO_DATE('2022-03-05','YYYY-MM-DD')),0 , NULL);
+insert into reservations values (016,006,04,(TO_DATE('2022-02-06','YYYY-MM-DD')), (TO_DATE('2022-03-06','YYYY-MM-DD')),1 , (TO_DATE('2022-02-01','YYYY-MM-DD')));
+insert into reservations values (018,002,02,(TO_DATE('2021-03-05','YYYY-MM-DD')), (TO_DATE('2022-04-05','YYYY-MM-DD')),1 , (TO_DATE('2022-04-04','YYYY-MM-DD')));
+insert into reservations values (019,001,03,(TO_DATE('2021-03-10','YYYY-MM-DD')), (TO_DATE('2022-04-10','YYYY-MM-DD')),1 , (TO_DATE('2022-04-10','YYYY-MM-DD')));
+insert into reservations values (020,005,05,(TO_DATE('2021-04-05','YYYY-MM-DD')), (TO_DATE('2022-05-05','YYYY-MM-DD')),0 , NULL);
+insert into reservations values (020,005,05,(TO_DATE('2021-04-24','YYYY-MM-DD')), (TO_DATE('2022-05-24','YYYY-MM-DD')),1 , (TO_DATE('2022-05-22','YYYY-MM-DD')));
+insert into reservations values (022,006,04,(TO_DATE('2021-04-25','YYYY-MM-DD')), (TO_DATE('2022-05-25','YYYY-MM-DD')),1 , (TO_DATE('2022-05-25','YYYY-MM-DD')));
+insert into reservations values (023,007,01,(TO_DATE('2021-04-27','YYYY-MM-DD')), (TO_DATE('2022-05-27','YYYY-MM-DD')),0 , NULL);
+insert into reservations values (024,001,02,(TO_DATE('2021-04-27','YYYY-MM-DD')), (TO_DATE('2022-05-27','YYYY-MM-DD')),1 , (TO_DATE('2022-05-27','YYYY-MM-DD')));
+insert into reservations values (025,005,03,(TO_DATE('2021-05-05','YYYY-MM-DD')), (TO_DATE('2022-07-05','YYYY-MM-DD')),0 , NULL);
+insert into reservations values (027,007,04,(TO_DATE('2021-05-15','YYYY-MM-DD')), (TO_DATE('2022-07-15','YYYY-MM-DD')),1 , (TO_DATE('2022-05-25','YYYY-MM-DD')));
+insert into reservations values (027,007,01,(TO_DATE('2021-05-15','YYYY-MM-DD')), (TO_DATE('2022-07-15','YYYY-MM-DD')),1 , (TO_DATE('2022-06-15','YYYY-MM-DD')));
+insert into reservations values (028,002,03,(TO_DATE('2021-06-05','YYYY-MM-DD')), (TO_DATE('2022-07-05','YYYY-MM-DD')),1 , (TO_DATE('2022-06-29','YYYY-MM-DD')));
+insert into reservations values (029,005,01,(TO_DATE('2021-06-10','YYYY-MM-DD')), (TO_DATE('2022-07-10','YYYY-MM-DD')),0 , NULL);
+insert into reservations values (030,002,02,(TO_DATE('2021-06-11','YYYY-MM-DD')), (TO_DATE('2022-07-11','YYYY-MM-DD')),1 , (TO_DATE('2022-07-09','YYYY-MM-DD')));
+insert into reservations values (031,006,02,(TO_DATE('2021-06-15','YYYY-MM-DD')), (TO_DATE('2022-07-15','YYYY-MM-DD')),0 , NULL);
+insert into reservations values (032,007,04,(TO_DATE('2021-06-21','YYYY-MM-DD')), (TO_DATE('2022-07-21','YYYY-MM-DD')),1 , (TO_DATE('2022-07-20','YYYY-MM-DD')));
+insert into reservations values (033,006,05,(TO_DATE('2021-06-24','YYYY-MM-DD')), (TO_DATE('2022-07-24','YYYY-MM-DD')),1 , (TO_DATE('2022-07-05','YYYY-MM-DD')));
+insert into reservations values (034,001,05,(TO_DATE('2021-07-05','YYYY-MM-DD')), (TO_DATE('2022-08-05','YYYY-MM-DD')),0 , NULL);
+insert into reservations values (035,002,01,(TO_DATE('2021-07-07','YYYY-MM-DD')), (TO_DATE('2022-08-07','YYYY-MM-DD')),1 , (TO_DATE('2022-08-15','YYYY-MM-DD')));
+insert into reservations values (036,005,02,(TO_DATE('2021-07-08','YYYY-MM-DD')), (TO_DATE('2022-08-08','YYYY-MM-DD')),1 , (TO_DATE('2022-08-15','YYYY-MM-DD')));
+insert into reservations values (037,007,03,(TO_DATE('2021-07-08','YYYY-MM-DD')), (TO_DATE('2022-08-08','YYYY-MM-DD')),1 , (TO_DATE('2022-08-10','YYYY-MM-DD')));
+insert into reservations values (038,006,01,(TO_DATE('2021-07-08','YYYY-MM-DD')), (TO_DATE('2022-08-08','YYYY-MM-DD')),0 , NULL);
+insert into reservations values (039,007,04,(TO_DATE('2021-07-08','YYYY-MM-DD')), (TO_DATE('2022-08-08','YYYY-MM-DD')),1 , (TO_DATE('2022-08-02','YYYY-MM-DD')));
+insert into reservations values (040,002,05,(TO_DATE('2021-07-09','YYYY-MM-DD')), (TO_DATE('2022-08-09','YYYY-MM-DD')),0 , NULL);
+insert into reservations values (041,001,02,(TO_DATE('2021-07-09','YYYY-MM-DD')), (TO_DATE('2022-08-09','YYYY-MM-DD')),1 , (TO_DATE('2022-08-07','YYYY-MM-DD')));
+insert into reservations values (042,005,03,(TO_DATE('2021-07-10','YYYY-MM-DD')), (TO_DATE('2022-08-10','YYYY-MM-DD')),1 , (TO_DATE('2022-08-12','YYYY-MM-DD')));
+insert into reservations values (043,006,01,(TO_DATE('2021-07-11','YYYY-MM-DD')), (TO_DATE('2022-08-11','YYYY-MM-DD')),1 , (TO_DATE('2022-08-15','YYYY-MM-DD')));
+insert into reservations values (044,007,05,(TO_DATE('2021-07-14','YYYY-MM-DD')), (TO_DATE('2022-08-14','YYYY-MM-DD')),1 , (TO_DATE('2022-08-15','YYYY-MM-DD')));
+insert into reservations values (045,007,11,(TO_DATE('2021-07-14','YYYY-MM-DD')), (TO_DATE('2022-08-14','YYYY-MM-DD')),0 , NULL);
+insert into reservations values (046,007,12,(TO_DATE('2021-07-14','YYYY-MM-DD')), (TO_DATE('2022-08-14','YYYY-MM-DD')),0 , NULL);
+
